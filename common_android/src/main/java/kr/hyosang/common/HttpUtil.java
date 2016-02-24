@@ -1,6 +1,7 @@
 package kr.hyosang.common;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
@@ -204,7 +205,7 @@ public class HttpUtil extends Thread {
         }
     }
 
-    private Handler mHandler = new Handler() {
+    private Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
             switch(msg.what) {
